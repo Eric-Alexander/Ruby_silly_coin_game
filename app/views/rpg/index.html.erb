@@ -1,0 +1,50 @@
+<h1>Your Gold: <%= @count %></h1>
+<h2>Holy Fuck! The US is experiencing the most massive recession in its' history. People are getting angry, desperate and rioting. Now, it's your turn! Start looting the locations below to hoard gold.</h2>
+<div class="boo">
+<form action='/process' method='post' >
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <Input type="hidden" name="location" value="cave">
+        <p class="far">The Cave of Doom of Despair</p>
+        <p>Reap 5,000 to 10,000 golden dubloons.</p>
+        <input type="submit" value="Pillage the Cave!"class='button'/>
+</form>
+</div>
+<div class="boo">
+<form action='/process' method='post' >
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <Input type="hidden" name="location" value="farm">
+    <p class="far">The Meat Farm of Human Corpses</p>
+    <p>Reap 1,000 to 2,000 golden dubloons.</p>
+    <input type="submit" value="Pillage the Farm!"class='button'/>
+</form>
+</div>
+<div class="boo">
+<form action='/process' method='post' >
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <Input type="hidden" name="location" value="casino">
+        <p class="far">The Gamble House of Immorality</p>
+        <p>Reap 1,000 to 2,000 golden dubloons.</p>
+        <input type="submit" value="Pillage the Casino!"class='button'/>
+</form>
+</div>
+<div class="boo">
+<form action='/process' method='post' >
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <Input type="hidden" name="location" value="house">
+        <p class="far">The House of False Hopes</p>
+        <p>Reap 200 to 500 golden dubloons.</p>
+        <input type="submit" value="Pillage the House!" class='button'/>
+</form>
+</div>
+<div>
+    <h1> Log: </h1>
+    <% if @action %>​
+        <% @action.reverse.each do |x| %>​
+            <% if x.include?("Reaped") %>​
+                <p class="win"><%= x %></p>​
+            <% else %>​
+                <p class="lose"><%= x %></p>​
+            <% end %>​
+        <% end %>​
+    <% end %>​
+</div>​
